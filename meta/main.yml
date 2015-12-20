@@ -1,0 +1,5 @@
+---
+galaxy_info:
+  author: Alex Coyle
+  description: Provides an 'eclipse' Ansible module that wraps the Eclipse director application, for installing or uninstalling Eclipse feature groups
+dependencies: []
