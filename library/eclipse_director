@@ -28,7 +28,6 @@ release_repository() {
 
 verify() {
   local _iu=$1
-  local _repository=$2
   local _stdout
   _stdout=$(eclipse -nosplash -application org.eclipse.equinox.p2.director\
    -uninstallIU "$_iu"\
@@ -64,7 +63,6 @@ uninstall() {
 main() {
   source $1
 
-#  [[ -n $repository ]] || fail "missing required arguments: repository"
   [[ -n $iu ]] || fail "missing required arguments: iu"
   [[ -z $state || $state = "present" || $state = "absent" ]] || fail "value of state must be one of: present,absent, got: $state"
 
@@ -76,12 +74,12 @@ main() {
   release_repository director_repository
 
   if [[ $director_state = "present" ]]; then
-    { time verify $iu $repository && printf '{"changed": false}'; } || { 
-      time install $iu $repository
+    { verify $iu && printf '{"changed": false}'; } || { 
+      install $iu $repository
       printf '{"changed": true}' 
     }
   else
-    { verify $iu $repository && uninstall $iu && printf '{"changed": true}'; } || printf '{"changed": false}' 
+    { verify $iu && uninstall $iu && printf '{"changed": true}'; } || printf '{"changed": false}' 
   fi
 }
 
