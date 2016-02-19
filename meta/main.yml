@@ -2,4 +2,12 @@
 galaxy_info:
   author: Alex Coyle
   description: Provides an 'eclipse' Ansible module that wraps the Eclipse director application, for installing or uninstalling Eclipse feature groups
+  license: BSD
+  min_ansible_version: 1.9
+  platforms:
+  - name: GenericLinux
+    versions:
+    - any
+  categories:
+  - development
 dependencies: []
