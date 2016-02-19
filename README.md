@@ -11,6 +11,8 @@ Requirements
   - which
   - sed
 
+Currently the `eclipse_director` module has only been tested against Fedora (23) hosts, but in theory should work for all Linux variants.
+
 Arguments
 ---------
 
