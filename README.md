@@ -1,7 +1,7 @@
 ansible-eclipse-director
 ========================
 
-This Ansible role provides an 'eclipse' module that wraps the Eclipse director application, for installing or uninstalling Eclipse feature groups.
+This Ansible role provides an `eclipse_director` module that wraps the Eclipse director application, for installing or uninstalling Eclipse feature groups.
 
 Requirements
 ------------
@@ -21,7 +21,7 @@ Arguments
 Notes:
 
   - The 'release' update site for the installed version of Eclipse will always be included, regardless of whether the repository argument is provided or not.
-  - The 'release' update site url is typically of the form http://download.eclipse.org/releases/<release-name>, where release name is one of kepler, luna, mars etc, depending on the version installed.
+  - The 'release' update site url is typically of the form `http://download.eclipse.org/releases/<release-name>`, where release name is one of kepler, luna, mars etc, depending on the version installed.
 
 Dependencies
 ------------
@@ -45,6 +45,7 @@ Example Playbook
 Save the following configuration into files with the specified names:
 
 **playbook.yml:**
+
 ```
 - hosts: linux-workstation
   sudo: no
@@ -60,6 +61,7 @@ Save the following configuration into files with the specified names:
         state: present
 ```
 **hosts:**
+
 ```
 # Dummy inventory for ansible
 linux-workstation ansible_host=localhost ansible_connection=local
