@@ -97,6 +97,15 @@ eclipse_verify_iu() {
   [[ $output =~ changed.*false ]]
 }
 
+@test "Module exec with multiple iu's from alternate repository" {
+  docker_exec yum -y install java-headless
+  eclipse_setup
+  run ansible_exec_module eclipse_director "iu=org.moreunit.feature.group,org.moreunit.mock.feature.group repository=http://moreunit.sourceforge.net/update-site"
+  [[ $output =~ changed.*true ]]
+  eclipse_verify_iu org.moreunit.feature.group
+  eclipse_verify_iu org.moreunit.mock.feature.group
+}
+
 teardown() {
   docker stop $docker_container_name > /dev/null
   docker rm $docker_container_name > /dev/null
