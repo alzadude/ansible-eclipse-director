@@ -6,7 +6,7 @@
 readonly docker_image="tutum/fedora:21"
 readonly docker_container_name="ansible-eclipse-director"
 readonly director_iu=org.eclipse.epp.mpc.feature.group
-readonly eclipse_url="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.5.1-201509040015/eclipse-platform-4.5.1-linux-gtk-x86_64.tar.gz&r=1"
+readonly eclipse_url="http://www.eclipse.org/downloads/download.php?file=/eclipse/downloads/drops4/R-4.5.2-201602121500/eclipse-platform-4.5.2-linux-gtk-x86_64.tar.gz&r=1"
 
 docker_exec() {
   docker exec $docker_container_name $@ > /dev/null
@@ -37,7 +37,7 @@ setup() {
 
 eclipse_setup() {
   docker_exec yum -y install tar
-  docker_exec curl -s -f -L -z /var/tmp/eclipse-platform.tar.gz -o /var/tmp/eclipse-platform.tar.gz $eclipse_url
+  docker_exec curl -f -L -o /var/tmp/eclipse-platform.tar.gz $eclipse_url
   docker_exec tar xz -f /var/tmp/eclipse-platform.tar.gz -C /usr/local --no-same-owner --no-same-permissions
   docker_exec ln -s /usr/local/eclipse/eclipse /usr/local/bin/eclipse
 }
