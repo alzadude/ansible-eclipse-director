@@ -37,7 +37,7 @@ setup() {
 
 eclipse_setup() {
   docker_exec yum -y install tar
-  docker_exec curl -f -L -o /var/tmp/eclipse-platform.tar.gz $eclipse_url
+  docker_exec curl -s -f -L -o /var/tmp/eclipse-platform.tar.gz $eclipse_url
   docker_exec tar xz -f /var/tmp/eclipse-platform.tar.gz -C /usr/local --no-same-owner --no-same-permissions
   docker_exec ln -s /usr/local/eclipse/eclipse /usr/local/bin/eclipse
 }
