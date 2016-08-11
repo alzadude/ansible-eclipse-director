@@ -1,6 +1,8 @@
 ansible-eclipse-director
 ========================
 
+[![Build Status](https://travis-ci.org/alzadude/ansible-eclipse-director.svg?branch=master)](https://travis-ci.org/alzadude/ansible-eclipse-director)
+
 This Ansible role provides an `eclipse_director` module that wraps the Eclipse director application, for installing or uninstalling Eclipse feature groups.
 
 Requirements
@@ -76,5 +78,5 @@ ansible-playbook -i hosts playbook.yml
 License
 -------
 
-BSD
+MIT
 
